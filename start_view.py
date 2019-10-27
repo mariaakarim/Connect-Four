@@ -21,4 +21,4 @@ if __name__ == "__main__":
         window.fill(yellow)
         pygame.display.update()
 
-    pygame.QUIT()
+    pygame.quit()
