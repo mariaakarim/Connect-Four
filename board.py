@@ -7,10 +7,11 @@ class Board:
         self.board = np.zeros((rows, columns))
 
     def place_disk(self, row, col, disk):
-        self.board[self.rows - row -1][col] = disk
+        if(self.is_valid_location(row, col)):
+            self.board[self.rows - row -1][col] = disk
 
     def is_valid_location(self, row, col):
-        return self.board[row][col] == 0
+        return self.board[self.rows - row -1][col] == 0
 
     def print_board(self):
         print(self.board)
