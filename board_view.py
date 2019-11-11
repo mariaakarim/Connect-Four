@@ -13,6 +13,10 @@ YELLOW = [255, 255, 0]
 WHITE = [255, 255, 255]
 RED = [255, 0, 0]
 PURPLE = [255, 0, 255]
+GAME_BOARD  = Board(NUM_ROWS, NUM_COLS)
+pygame.font.init()
+GAME_FONT = pygame.font.SysFont("comicsansms", 50)
+exit_game = False
 
 pygame.display.init()
 
@@ -20,8 +24,6 @@ pygame.display.set_caption("CONNECT FOUR")
 window = pygame.display.set_mode([WIDTH, HEIGHT],
     pygame.RESIZABLE)
 
-exit_game = False
-game_board = Board(NUM_ROWS, NUM_COLS)
 
 def draw_player1_disk(row, col):
     circle = [(col*BLOCK) + BLOCK//2, (row*BLOCK)+ BLOCK + BLOCK//2]
@@ -38,19 +40,38 @@ def draw_empty_disk(row, col):
 def display_board():
     for col in range(NUM_COLS):
         for row in range(NUM_ROWS):
-            if game_board.board[row, col] == 1:
+            if GAME_BOARD .board[row, col] == 1:
                 draw_player1_disk(row, col)
-            elif game_board.board[row, col] == 2:
+            elif GAME_BOARD .board[row, col] == 2:
                 draw_player2_disk(row, col)
             else:
                 draw_empty_disk(row, col)
 
 
 if __name__ == "__main__":
+    turn = 1 # represent which player's turn it is
     while not exit_game:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 exit_game = True
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                pos = event.pos[0] # the x coordinate
+                sel_col = pos // BLOCK #scale it to one block in the array
+                row = GAME_BOARD.get_next_open_row(sel_col)
+                if row is None:
+                    text = GAME_FONT.render("This column is full !", 1, RED)
+                    window.blit(text, [40, 10])
+                    exit_game = True
+                else:
+                    if turn == 1:
+                        GAME_BOARD.place_disk(row, sel_col, 1)
+                        display_board()
+                        turn = 2
+                    elif turn == 2:
+                        GAME_BOARD.place_disk(row, sel_col, 2)
+                        display_board()
+                        turn = 1
+
         window.fill(PURPLE)
         pygame.draw.rect(window, WHITE, INPUT_BAR, 0)
         #fills board with white circles to represent empty slots in the game
