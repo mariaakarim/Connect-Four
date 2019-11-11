@@ -1,18 +1,19 @@
 import pygame
-from board import *
+from board import Board
+from colors import *
 
 NUM_COLS = 7
 NUM_ROWS = 6
 BLOCK = 80 # if one position in a 2D array was represented graphically as a
            # square this would be the size
+
 WIDTH = NUM_COLS * BLOCK
 HEIGHT = (NUM_ROWS+1) * BLOCK # adding plus one so we can fit the input bar
-RADIUS = 35
-INPUT_BAR = [0, 0, NUM_COLS*BLOCK, RADIUS*2]
-YELLOW = [255, 255, 0]
-WHITE = [255, 255, 255]
-RED = [255, 0, 0]
-PURPLE = [255, 0, 255]
+RADIUS = 35 # radius of circles on the board
+
+INPUT_BAR = [0, 0, NUM_COLS*BLOCK, RADIUS*2] # bar to show what column user is
+                                             # about to pick
+
 GAME_BOARD  = Board(NUM_ROWS, NUM_COLS)
 pygame.font.init()
 GAME_FONT = pygame.font.SysFont("comicsansms", 50)
@@ -56,7 +57,7 @@ if __name__ == "__main__":
                 exit_game = True
             if event.type == pygame.MOUSEBUTTONDOWN:
                 pos = event.pos[0] # the x coordinate
-                sel_col = pos // BLOCK #scale it to one block in the array
+                sel_col = pos // BLOCK # scale it to one block in the array
                 row = GAME_BOARD.get_next_open_row(sel_col)
                 if row is None:
                     text = GAME_FONT.render("This column is full !", 1, RED)
