@@ -49,7 +49,8 @@ def display_board():
                 draw_empty_disk(row, col)
 
 
-if __name__ == "__main__":
+def start():
+    exit_game = False
     turn = 1 # represent which player's turn it is
     while not exit_game:
         for event in pygame.event.get():
