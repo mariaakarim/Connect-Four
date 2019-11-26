@@ -1,6 +1,7 @@
 import pygame
 from board import Board
 from colors import *
+from win_screen import *
 
 NUM_COLS = 7
 NUM_ROWS = 6
@@ -17,7 +18,6 @@ INPUT_BAR = [0, 0, NUM_COLS*BLOCK, RADIUS*2] # bar to show what column user is
 GAME_BOARD  = Board(NUM_ROWS, NUM_COLS)
 pygame.font.init()
 GAME_FONT = pygame.font.SysFont("comicsansms", 50)
-exit_game = False
 
 pygame.display.init()
 
@@ -30,18 +30,21 @@ def draw_player1_disk(row, col):
     circle = [(col*BLOCK) + BLOCK//2, (row*BLOCK)+ BLOCK + BLOCK//2]
     pygame.draw.circle(window, RED, circle, RADIUS)
 
+
 def draw_player2_disk(row, col):
     circle = [(col*BLOCK) + BLOCK//2, (row*BLOCK)+ BLOCK + BLOCK//2]
     pygame.draw.circle(window, YELLOW, circle, RADIUS)
+
 
 def draw_empty_disk(row, col):
     circle = [(col*BLOCK) + BLOCK//2, (row*BLOCK)+ BLOCK + BLOCK//2]
     pygame.draw.circle(window, WHITE, circle, RADIUS)
 
+
 def display_board():
     for col in range(NUM_COLS):
         for row in range(NUM_ROWS):
-            if GAME_BOARD .board[row, col] == 1:
+            if GAME_BOARD.board[row, col] == 1:
                 draw_player1_disk(row, col)
             elif GAME_BOARD .board[row, col] == 2:
                 draw_player2_disk(row, col)
@@ -67,16 +70,24 @@ def start():
                 else:
                     if turn == 1:
                         GAME_BOARD.place_disk(row, sel_col, 1)
+                        if GAME_BOARD.check_winner(1, row, sel_col):
+                            display()
+                            exit_game = True
+
                         display_board()
                         turn = 2
                     elif turn == 2:
                         GAME_BOARD.place_disk(row, sel_col, 2)
+                        if GAME_BOARD.check_winner(2, row, sel_col):
+                            display()
+                            exit_game = True
+
                         display_board()
                         turn = 1
 
         window.fill(PURPLE)
         pygame.draw.rect(window, WHITE, INPUT_BAR, 0)
-        #fills board with white circles to represent empty slots in the game
+        # fills board with white circles to represent empty slots in the game
         display_board()
 
         pygame.display.update()
