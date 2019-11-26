@@ -39,7 +39,6 @@ class Board:
 
 
         pos = self.rows - row
-
         while pos < self.rows:
             if self.board[pos][col] == player:
                 total += 1
@@ -62,7 +61,8 @@ class Board:
                 break
             c -= 1
         c = col + 1
-        while c < self.rows:
+
+        while c < self.cols:
             if self.board[r][c] == player:
                 total += 1
             else:
