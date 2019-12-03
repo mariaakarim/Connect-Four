@@ -2,18 +2,23 @@ import pygame
 from button import *
 import board_view
 
+NUM_COLS = 7
+NUM_ROWS = 6
+BLOCK = 80
+
+WIDTH = NUM_COLS * BLOCK
+HEIGHT = (NUM_ROWS+1) * BLOCK
+
 PURPLE = [255, 0, 255]
 BLUE = [0, 0, 255]
 pygame.init()
-
 # create game window
-window = pygame.display.set_mode((600, 600))
+window = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Main Menu")
 pygame.display.update()
 on = True
-
 # window loop
-def start_game():
+if __name__ == "__main__":
     while on:
         window.fill((0, 0, 0))
         play = PG_Button(PURPLE, 250, 150, 100, 50, "Play")
@@ -29,17 +34,12 @@ def start_game():
             instructions.draw(window)
 
         for event in pygame.event.get():
-            if event.type == pygame.QUIT:
+            if(event.type == pygame.QUIT):
                 on = False
 
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if play.mouse_over(pygame.mouse.get_pos()):
                     board_view.start()
-                    pygame.quit()
-                    on = False
-                    break
+
         pygame.display.flip()
     pygame.quit()
-
-if __name__ == '__main__':
-    start_game()
