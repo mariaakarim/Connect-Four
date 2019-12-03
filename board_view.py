@@ -84,22 +84,22 @@ def start():
                 else:
                     if turn == 1:
                         GAME_BOARD.place_disk(row, sel_col, 1)
+                        display_board()
                         if GAME_BOARD.check_winner(1, row, sel_col):
                             print_on_input_bar("Player 1 wins!")
                             win_screen.display()
                             exit_game = True
 
-                        display_board()
                         turn = 2
                         pygame.display.update()
                     elif turn == 2:
                         GAME_BOARD.place_disk(row, sel_col, 2)
+                        display_board()
                         if GAME_BOARD.check_winner(2, row, sel_col):
                             print_on_input_bar("Player 2 wins!")
                             win_screen.display()
                             exit_game = True
 
-                        display_board()
                         turn = 1
                         pygame.display.update()
 
