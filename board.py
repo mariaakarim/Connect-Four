@@ -85,7 +85,7 @@ class Board:
         c = col
         r = self.rows - row - 1
         total = 0
-        while c > 0:
+        while c >= 0:
             if self.board[r][c] == player:
                 total += 1
             else:
