@@ -15,19 +15,18 @@ RADIUS = 35 # radius of circles on the board
 INPUT_BAR = [0, 0, NUM_COLS*BLOCK, RADIUS*2] # bar to show what column user is
                                              # about to pick
 
-GAME_BOARD  = Board(NUM_ROWS, NUM_COLS)
+GAME_BOARD = Board(NUM_ROWS, NUM_COLS)
 pygame.font.init()
 GAME_FONT = pygame.font.SysFont("comicsansms", 50)
 
 pygame.display.init()
 
 pygame.display.set_caption("CONNECT FOUR")
-window = pygame.display.set_mode([WIDTH, HEIGHT],
-    pygame.RESIZABLE)
+window = pygame.display.set_mode([WIDTH, HEIGHT], 0)
 
 
 def draw_player1_disk(row, col):
-    circle = [(col*BLOCK) + BLOCK//2, (row*BLOCK)+ BLOCK + BLOCK//2]
+    circle = [(col*BLOCK) + BLOCK//2, (row*BLOCK) + BLOCK + BLOCK//2]
     pygame.draw.circle(window, RED, circle, RADIUS)
 
 
@@ -54,18 +53,31 @@ def display_board():
 
 def start():
     exit_game = False
-    turn = 1 # represent which player's turn it is
+    turn = 1  # represent which player's turn it is
     while not exit_game:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 exit_game = True
+
+            # display disc about to be dropped in INPUT bar
+            if event.type == pygame.MOUSEMOTION:
+                coord_x = event.pos[0]
+                sel_col = coord_x//BLOCK
+                if turn == 1:
+                    draw_player1_disk(-1, sel_col)
+                else:
+                    draw_player2_disk(-1, sel_col)
+            pygame.display.update()
+
             if event.type == pygame.MOUSEBUTTONDOWN:
-                pos = event.pos[0] # the x coordinate
-                sel_col = pos // BLOCK # scale it to one block in the array
+                pos = event.pos[0]  # the x coordinate
+                sel_col = pos // BLOCK  # scale it to one block in the array
                 row = GAME_BOARD.get_next_open_row(sel_col)
                 if row is None:
                     text = GAME_FONT.render("This column is full !", 1, RED)
                     window.blit(text, [40, 10])
+                    pygame.display.update()
+                    pygame.time.wait(2000)
                     exit_game = True
                 else:
                     if turn == 1:
@@ -76,6 +88,7 @@ def start():
 
                         display_board()
                         turn = 2
+                        pygame.display.update()
                     elif turn == 2:
                         GAME_BOARD.place_disk(row, sel_col, 2)
                         if GAME_BOARD.check_winner(2, row, sel_col):
@@ -84,12 +97,11 @@ def start():
 
                         display_board()
                         turn = 1
+                        pygame.display.update()
 
         window.fill(PURPLE)
         pygame.draw.rect(window, WHITE, INPUT_BAR, 0)
         # fills board with white circles to represent empty slots in the game
         display_board()
-
-        pygame.display.update()
 
     pygame.quit()
