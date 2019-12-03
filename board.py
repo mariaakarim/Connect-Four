@@ -117,7 +117,7 @@ class Board:
             sel_row = self.rows - row - 1
             if consec_num == 4:
                 return True
-            if sel_row + 1 < self.rows:
+            if sel_row + 1 < self.rows and col - 1 >= 0:
                 if self.board[sel_row + 1][col-1] == player:
                     consec_num += 1
             row -= 1
@@ -137,7 +137,7 @@ class Board:
             sel_row = self.rows - row - 1
             if consec_num == 4:
                 return True
-            if sel_row + 1 < self.rows:
+            if sel_row + 1 < self.rows and col + 1 < self.cols:
                 if self.board[sel_row + 1][col+1] == player:
                     consec_num += 1
             row -= 1
