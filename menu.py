@@ -23,15 +23,10 @@ if __name__ == "__main__":
         window.fill((0, 0, 0))
         play = PG_Button(PURPLE, 250, 150, 100, 50, "Play")
         play.draw(window)
-        instructions = PG_Button(PURPLE, 250, 250, 100, 50, "Instr")
-        instructions.draw(window)
 
         if play.mouse_over(pygame.mouse.get_pos()):
             play.col = BLUE
             play.draw(window)
-        if instructions.mouse_over(pygame.mouse.get_pos()):
-            instructions.col = BLUE
-            instructions.draw(window)
 
         for event in pygame.event.get():
             if(event.type == pygame.QUIT):
