@@ -1,7 +1,7 @@
 import pygame
 from board import Board
 from colors import *
-from win_screen import *
+import win_screen
 
 NUM_COLS = 7
 NUM_ROWS = 6
@@ -24,6 +24,11 @@ pygame.display.init()
 pygame.display.set_caption("CONNECT FOUR")
 window = pygame.display.set_mode([WIDTH, HEIGHT], 0)
 
+def print_on_input_bar(sentence):
+    text = GAME_FONT.render(sentence, 1, RED)
+    window.blit(text, [40, 10])
+    pygame.display.update()
+    pygame.time.wait(2000)
 
 def draw_player1_disk(row, col):
     circle = [(col*BLOCK) + BLOCK//2, (row*BLOCK) + BLOCK + BLOCK//2]
@@ -74,16 +79,14 @@ def start():
                 sel_col = pos // BLOCK  # scale it to one block in the array
                 row = GAME_BOARD.get_next_open_row(sel_col)
                 if row is None:
-                    text = GAME_FONT.render("This column is full !", 1, RED)
-                    window.blit(text, [40, 10])
-                    pygame.display.update()
-                    pygame.time.wait(2000)
+                    print_on_input_bar("This column is full");
                     exit_game = True
                 else:
                     if turn == 1:
                         GAME_BOARD.place_disk(row, sel_col, 1)
                         if GAME_BOARD.check_winner(1, row, sel_col):
-                            display()
+                            print_on_input_bar("Player 1 wins!")
+                            win_screen.display()
                             exit_game = True
 
                         display_board()
@@ -92,7 +95,8 @@ def start():
                     elif turn == 2:
                         GAME_BOARD.place_disk(row, sel_col, 2)
                         if GAME_BOARD.check_winner(2, row, sel_col):
-                            display()
+                            print_on_input_bar("Player 2 wins!")
+                            win_screen.display()
                             exit_game = True
 
                         display_board()
