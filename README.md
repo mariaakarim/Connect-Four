@@ -1,12 +1,6 @@
 # csc290-connectfour
 by Simran, Andi, Lawrence, Maria and James
 
-### Game Screenshots
-***
-<img src="screenshots/game_board.png" width="400" height="400">
-<img src="screenshots/main_menu.jpg" width="400" height="400">
-<img src="screenshots/player_win.png" width="400" height="400">
-
 ### Game Description
 
 This game is a python implementation of the popular board game
@@ -19,4 +13,8 @@ Connect four is a 2 player game, and the rules are very straight forward. You ea
 When you start the game, click the play button to advance to the game screen. There are two players, so you each take turns placing one disk, player 1 is red, and player 2 is yellow. Place disks by clicking the screen
 
 
-
+### Game Screenshots
+***
+<img src="screenshots/game_board.png" width="400" height="400">
+<img src="screenshots/main_menu.jpg" width="400" height="400">
+<img src="screenshots/player_win.png" width="400" height="400">
