@@ -46,3 +46,8 @@ Documentation about our project and directory structure can be found at the [wik
     implemented about 50% the class `board.py`, all the methods apart from the `check_winner()` method and the functions that  `check_winner()` uses. I also created `colors.py`. In the readme I wrote the Installation guide, the Documentation page([the wiki page](https://github.com/AFYY/csc290-connectfour/wiki)), I added screenshots to the readme and I also selected the license used for our project. 
     
     
+## License
+
+This project was built by Simran, Andi, Onimisi, Maria and James under the MIT license.
+
+The License can be found [here](license.txt)
