@@ -31,3 +31,4 @@ When you start the game, click the play button to advance to the game screen. Th
 <img src="screenshots/game_board.png" width="400" height="400">
 <img src="screenshots/main_menu.jpg" width="400" height="400">
 <img src="screenshots/player_win.png" width="400" height="400">
+<img src="screenshots/winning_screen.png" width="400" height="400">
