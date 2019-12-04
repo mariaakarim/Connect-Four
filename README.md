@@ -32,3 +32,8 @@ When you start the game, click the play button to advance to the game screen. Th
 <img src="screenshots/main_menu.jpg" width="400" height="400">
 <img src="screenshots/player_win.png" width="400" height="400">
 <img src="screenshots/winning_screen.png" width="400" height="400">
+
+
+## Documentation
+*** 
+Documentation about our project and directory structure can be found at the [wiki page](https://github.com/AFYY/csc290-connectfour/wiki) for our repo.
