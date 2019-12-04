@@ -44,7 +44,10 @@ Documentation about our project and directory structure can be found at the [wik
   ### Onimisi Ayira, github username: ayira-onimisi:
    * I implemented about 95% of `board_view.py` with the gameplay, I wasn't responsible for adding a check for a winning move. I also
     implemented about 50% the class `board.py`, all the methods apart from the `check_winner()` method and the functions that  `check_winner()` uses. I also created `colors.py`. In the readme I wrote the Installation guide, the Documentation page([the wiki page](https://github.com/AFYY/csc290-connectfour/wiki)), I added screenshots to the readme and I also selected the license used for our project. 
-    
+  
+  ### Simranjeet Bilkhu, GitHub username: simran-sb:
+   * I Implemented the verticals and horizontal win clauses in board.py, I also wrote the menu class, and the button class and edited the others so that they work together properly.
+     In the readme, I wrote the game controls and description sections
     
 ## License
 
