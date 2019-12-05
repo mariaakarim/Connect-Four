@@ -27,8 +27,8 @@ When you start the game, click the play button to advance to the game screen. Th
 
 ## How to Play:
 * The first turn is taken by Player 1.
-* Keep taking turns placing disks until a winner is declared.
-* A winner is declared is player has four consecutive disks in 
+* Keep taking turns and placing disks until a winner is declared.
+* A winner is declared if a player has four consecutive disks in 
 either of the directions vertical, horizontal, or diagonal.
 
 ## Game Screenshots
