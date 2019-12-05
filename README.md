@@ -25,6 +25,11 @@ Connect four is a 2 player game, and the rules are very straight forward. You ea
 
 When you start the game, click the play button to advance to the game screen. There are two players, so you each take turns placing one disk, player 1 is red, and player 2 is yellow. Place disks by clicking on the column you want to drop the disk in.
 
+## How to Play!
+    * The first turn is taken by Player 1.
+    * Keep taking turns placing disks until a winner is declared.
+    * A winner is declared is player has four consecutive disks in 
+    either of the directions vertical, horizontal, or diagonal.
 
 ## Game Screenshots
 ***
@@ -48,6 +53,10 @@ Documentation about our project and directory structure can be found at the [wik
   ### Simranjeet Bilkhu, GitHub username: simran-sb:
    * I wrote the check_winner, check_verticle, check_horizontal methods in board.py. I also wrote the menu.py module, win_screen.py mode and the button.py module and edited the others so that they work together properly.
      In the readme, I wrote the game controls and description sections
+     
+  ### Maria Abdul Karim, GitHub username: mariaakarim:
+  * I implemented method check diagonal in board.py. I also fixed few bugs in the existing code in board.py, board_view.py, and menu.py. 
+  I was also responsible to completing the docstrings in all of our game files. Moreover, I also wrote the "How to Play" section in README.md.
     
 ## License
 

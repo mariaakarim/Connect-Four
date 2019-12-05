@@ -25,27 +25,36 @@ pygame.display.set_caption("CONNECT FOUR")
 window = pygame.display.set_mode([WIDTH, HEIGHT], 0)
 
 def print_on_input_bar(sentence):
+    """Display the sentence on the board's title bar."""
     text = GAME_FONT.render(sentence, 1, RED)
     window.blit(text, [40, 10])
     pygame.display.update()
     pygame.time.wait(2000)
 
 def draw_player1_disk(row, col):
+    """Place Player Ones disk on the board.
+    """
     circle = [(col*BLOCK) + BLOCK//2, (row*BLOCK) + BLOCK + BLOCK//2]
     pygame.draw.circle(window, RED, circle, RADIUS)
 
 
 def draw_player2_disk(row, col):
+    """Place Player Twos disk on the board.
+    """
     circle = [(col*BLOCK) + BLOCK//2, (row*BLOCK)+ BLOCK + BLOCK//2]
     pygame.draw.circle(window, YELLOW, circle, RADIUS)
 
 
 def draw_empty_disk(row, col):
+    """Place white circles on the board to display empty spots.
+    """
     circle = [(col*BLOCK) + BLOCK//2, (row*BLOCK)+ BLOCK + BLOCK//2]
     pygame.draw.circle(window, WHITE, circle, RADIUS)
 
 
 def display_board():
+    """Display connect four board.
+    """
     for col in range(NUM_COLS):
         for row in range(NUM_ROWS):
             if GAME_BOARD.board[row, col] == 1:
@@ -57,6 +66,8 @@ def display_board():
 
 
 def start():
+    """Start a new game of connect four.
+    """
     exit_game = False
     turn = 1  # represent which player's turn it is
     while not exit_game:

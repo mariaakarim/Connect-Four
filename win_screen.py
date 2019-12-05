@@ -2,6 +2,8 @@ import pygame
 
 pygame.init()
 def display():
+    """Display a screen declaring the winner of the game.
+    """
     window = pygame.display.set_mode((300, 300))
     pygame.display.set_caption("Winner!")
     pygame.display.update()

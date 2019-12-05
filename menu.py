@@ -19,6 +19,8 @@ pygame.display.update()
 on = True
 # window loop
 if __name__ == "__main__":
+    """ Play the game connect four.
+    """
     while on:
         window.fill((0, 0, 0))
         play = PG_Button(PURPLE, 250, 150, 100, 50, "Play")
