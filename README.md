@@ -25,11 +25,11 @@ Connect four is a 2 player game, and the rules are very straight forward. You ea
 
 When you start the game, click the play button to advance to the game screen. There are two players, so you each take turns placing one disk, player 1 is red, and player 2 is yellow. Place disks by clicking on the column you want to drop the disk in.
 
-## How to Play!
-    * The first turn is taken by Player 1.
-    * Keep taking turns placing disks until a winner is declared.
-    * A winner is declared is player has four consecutive disks in 
-    either of the directions vertical, horizontal, or diagonal.
+## How to Play:
+* The first turn is taken by Player 1.
+* Keep taking turns placing disks until a winner is declared.
+* A winner is declared is player has four consecutive disks in 
+either of the directions vertical, horizontal, or diagonal.
 
 ## Game Screenshots
 ***
