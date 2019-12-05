@@ -57,6 +57,9 @@ Documentation about our project and directory structure can be found at the [wik
   ### Maria Abdul Karim, GitHub username: mariaakarim:
   * I implemented method check diagonal in board.py. I also fixed few bugs in the existing code in board.py, board_view.py, and menu.py. 
   I was also responsible to completing the docstrings in all of our game files. Moreover, I also wrote the "How to Play" section in README.md.
+
+  ### Andi Fan, Github username: Andi Fan
+  * Added circles to the gamescreen in boardview.
     
 ## License
 
